@@ -1,0 +1,24 @@
+name: Dependency Review
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  dependency-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Dependency Review
+        uses: actions/dependency-review-action@v4
+        with:
+          # Fail PRs that introduce any vulnerability ≥ 'high'
+          fail-on-severity: high
+          # Optionally, enforce license policy (examples):
+          # allow-licenses: MIT, BSD-3-Clause, GPL-3.0
+          # deny-licenses: GPL-2.0, AGPL-3.0
