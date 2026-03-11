@@ -8,6 +8,6 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "minimist": "0.2.0"
+    "minimist": "1.2.6"
   }
 }
